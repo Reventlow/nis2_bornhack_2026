@@ -75,6 +75,8 @@ def main() -> None:
     # The inverted slide's solid #4dff88 background became #6b8054 above;
     # deepen it so cream text keeps projector-grade contrast.
     html = html.replace("background:#6b8054;box-sizing", "background:#5c6a53;box-sizing")
+    # Theme-matched favicon.
+    html = html.replace("favicon-dark.svg", "favicon-light.svg")
     DST.write_text(html)
     print(f"{DST} written ({len(html)} bytes)")
 

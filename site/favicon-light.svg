@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Milky Matcha counterpart of favicon-dark.svg: cream tile, matcha grid, "?" + block cursor -->
+  <rect width="64" height="64" rx="12" fill="#f4f1e8"/>
+  <path d="M15 0h1v64h-1zM47 0h1v64h-1zM0 15h64v1H0zM0 47h64v1H0z" fill="#7a9461" fill-opacity=".3"/>
+  <text x="26" y="48" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="48" font-weight="800" fill="#5c6a53" text-anchor="middle">?</text>
+  <rect x="42" y="32" width="11" height="16" fill="#7a9461"/>
+</svg>
