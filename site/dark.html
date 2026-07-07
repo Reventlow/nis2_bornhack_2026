@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asking Why Until It Hurts — BornHack 2026</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0c0e0c}
+a{color:#4dff88}a:hover{color:#8dffb5}
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Title" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:rgba(220,235,224,0.55)">
+    <span>BORNHACK 2026</span>
+    <span style="color:#4dff88">[ TALK: COMPLIANCE / NIS2 ]</span>
+  </div>
+  <div>
+    <h1 style="margin:0;font-size:172px;line-height:1.0;font-weight:700;letter-spacing:-5px;color:#eef2ee">
+      <span style="display:block">Asking <span style="color:#4dff88">why</span></span>
+      <span style="display:block">until it hurts.</span>
+    </h1>
+    <p style="margin:52px 0 0;font-family:'JetBrains Mono',monospace;font-size:36px;color:rgba(220,235,224,0.7)">// how I learned the hard part of compliance</p>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:28px;color:rgba(220,235,224,0.75)">
+    <span style="display:flex;align-items:center;gap:20px"><span style="width:18px;height:18px;background:#4dff88;display:inline-block"></span><span>Gorm Reventlow</span></span>
+    <span style="color:rgba(220,235,224,0.45)">bornhack.dk</span>
+  </div>
+</section>
+
+<section data-label="whoami" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ INTRO ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">whoami</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ history | grep compliance</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:48px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5">
+    <div style="display:flex;gap:44px"><span style="color:#4dff88;font-weight:700;flex:none">2023</span><span style="color:rgba(220,235,224,0.82)">started dabbling — collecting data for a DPO</span></div>
+    <div style="display:flex;gap:44px"><span style="color:#4dff88;font-weight:700;flex:none">2025</span><span style="color:rgba(220,235,224,0.82)">new job, one brief: "NIS2. It's stuck. Fresh eyes."</span></div>
+    <div style="display:flex;gap:44px"><span style="color:#4dff88;font-weight:700;flex:none">2026</span><span style="color:rgba(220,235,224,0.82)">this talk — what happened in between</span></div>
+  </div>
+  <p style="margin:88px 0 0;font-family:'JetBrains Mono',monospace;font-size:32px;color:rgba(220,235,224,0.5)">// expecting a hardcore veteran? wrong tent. but you'll recognize the terrain.</p>
+</section>
+
+<section data-label="01 The Easy Part" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+  <div style="font-size:380px;font-weight:700;line-height:0.85;letter-spacing:-10px;color:rgba(77,255,136,0.16)">01</div>
+  <div>
+    <h2 style="margin:0;font-size:130px;font-weight:700;letter-spacing:-3px;line-height:1.0;color:#eef2ee">The Easy Part</h2>
+    <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:32px;color:rgba(220,235,224,0.55)">// rules, standards, and a lot of studying</p>
+  </div>
+</section>
+
+<section data-label="The Assignment" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 01 / THE EASY PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Assignment</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ cat brief.txt</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:40px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5;color:rgba(220,235,224,0.82)">
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>a company that had been wrestling with NIS2 for a while</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>the brief: fresh eyes on a stuck problem</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>my track record at that point: collecting data for a DPO</span></div>
+  </div>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#4dff88">so: fresh eyes. very fresh.</p>
+</section>
+
+<section data-label="The Reading List" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 01 / THE EASY PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Reading List</h2>
+  <div style="margin-top:64px;font-family:'JetBrains Mono',monospace;font-size:34px;line-height:1.5">
+    <p style="margin:0;color:rgba(220,235,224,0.5)">$ ls ~/reading/</p>
+    <div style="margin-top:44px;display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;gap:40px"><span style="color:#4dff88;flex:none;width:340px">nis2-directive/</span><span style="color:rgba(220,235,224,0.82)">who is covered, what is required</span></div>
+      <div style="display:flex;gap:40px"><span style="color:#4dff88;flex:none;width:340px">iso-27001/</span><span style="color:rgba(220,235,224,0.82)">the management system</span></div>
+      <div style="display:flex;gap:40px"><span style="color:#4dff88;flex:none;width:340px">iso-27002/</span><span style="color:rgba(220,235,224,0.82)">the controls</span></div>
+      <div style="display:flex;gap:40px"><span style="color:#4dff88;flex:none;width:340px">iso-27005/</span><span style="color:rgba(220,235,224,0.82)">risk management</span></div>
+      <div style="display:flex;gap:40px"><span style="color:#4dff88;flex:none;width:340px">iso-27035/</span><span style="color:rgba(220,235,224,0.82)">incident management, parts 1–4</span></div>
+      <div style="display:flex;gap:40px"><span style="color:#4dff88;flex:none;width:340px">network/</span><span style="color:rgba(220,235,224,0.82)">people who had done it before — the real find</span></div>
+    </div>
+  </div>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#4dff88">study. study. study.</p>
+</section>
+
+<section data-label="The Mindset" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 01 / THE EASY PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Mindset Behind the Rules</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ man nis2</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:40px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5;color:rgba(220,235,224,0.82)">
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>it looked daunting — and for a while it became my whole focus</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>understanding it all matters, including the intent behind it</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>the intent: not paperwork for auditors — resilience you can prove</span></div>
+  </div>
+</section>
+
+<section data-label="Status Check" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 01 / THE EASY PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">Status Check</h2>
+  <div style="margin-top:64px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5">
+    <p style="margin:0;color:rgba(220,235,224,0.5)">$ compliance --status</p>
+    <div style="margin-top:44px;display:flex;flex-direction:column;gap:34px;max-width:1320px">
+      <div style="display:flex;justify-content:space-between;gap:40px"><span style="color:rgba(220,235,224,0.82)">reading the directive</span><span style="color:#4dff88;flex:none">[ done ]</span></div>
+      <div style="display:flex;justify-content:space-between;gap:40px"><span style="color:rgba(220,235,224,0.82)">understanding the mindset</span><span style="color:#4dff88;flex:none">[ done ]</span></div>
+      <div style="display:flex;justify-content:space-between;gap:40px"><span style="color:rgba(220,235,224,0.82)">feeling pretty good about it</span><span style="color:#4dff88;flex:none">[ done ]</span></div>
+      <div style="display:flex;justify-content:space-between;gap:40px"><span style="color:rgba(220,235,224,0.82)">implementation</span><span style="color:#ffc857;flex:none">[ pending ]</span></div>
+    </div>
+  </div>
+  <p style="margin:80px 0 0;font-size:60px;font-weight:700;letter-spacing:-1px;color:#eef2ee;max-width:1500px">All of the above turned out to be <span style="color:#4dff88">the easy part.</span></p>
+</section>
+
+<section data-label="02 The Hard Part" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+  <div style="font-size:380px;font-weight:700;line-height:0.85;letter-spacing:-10px;color:rgba(77,255,136,0.16)">02</div>
+  <div>
+    <h2 style="margin:0;font-size:130px;font-weight:700;letter-spacing:-3px;line-height:1.0;color:#eef2ee">The Hard Part</h2>
+    <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:32px;color:rgba(220,235,224,0.55)">// in which a plan meets reality</p>
+  </div>
+</section>
+
+<section data-label="The Plan" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 02 / THE HARD PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Plan</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ ./implement.sh --dry-run</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:40px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5;color:rgba(220,235,224,0.82)">
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">[ ok ]</span><span>workshops with department heads and middle management</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">[ ok ]</span><span>procedures drafted together, in their own words</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">[ ok ]</span><span>documented, approved, filed</span></div>
+  </div>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#4dff88">textbook execution. what could possibly go wrong.</p>
+</section>
+
+<section data-label="The Plan in Production" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:center;overflow:hidden">
+  <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#ffc857">$ ./implement.sh --production</p>
+  <h2 style="margin:64px 0 0;font-size:118px;font-weight:700;letter-spacing:-3px;line-height:1.05;color:#eef2ee;max-width:1600px">The plan only ever lived in <span style="color:#4dff88">plan mode.</span></h2>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:36px;color:rgba(220,235,224,0.6)">written together. approved together. followed by no one.</p>
+</section>
+
+<section data-label="The Logic Problem" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 02 / THE HARD PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Logic Problem</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ ./convince.sh --method=logic</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:40px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5;color:rgba(220,235,224,0.82)">
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>my move: show the logic — requirement, risk, procedure</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>it made almost no headway</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>what it met instead: opposition</span></div>
+  </div>
+  <p style="margin:64px 0 0;font-size:54px;font-weight:700;letter-spacing:-1px;color:#eef2ee;max-width:1560px">People don't change how they work because a diagram is correct.</p>
+</section>
+
+<section data-label="Mental Barriers" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 02 / THE HARD PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:64px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">Mental Barriers of Change</h2>
+  <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ dmesg | grep -i warn</p>
+  <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:28px 56px;font-family:'JetBrains Mono',monospace">
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W01</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">foggy vision</span></div>
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W02</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">lack of planning</span></div>
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W03</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">impatience</span></div>
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W04</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">plan vs. reality</span></div>
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W05</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">circular dependency</span></div>
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W06</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">fear of telling the truth</span></div>
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W07</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">digitalization of clutter</span></div>
+    <div style="border:1px solid rgba(220,235,224,0.18);padding:30px 38px;display:flex;align-items:baseline;gap:28px"><span style="color:#ffc857;font-weight:700;font-size:28px;flex:none">W08</span><span style="font-size:33px;color:rgba(220,235,224,0.85)">lack of followership</span></div>
+  </div>
+  <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:32px;color:rgba(220,235,224,0.5)">// every one of them answers to a why</p>
+</section>
+
+<section data-label="Two Jobs of Implementation" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 02 / THE HARD PART ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Two Jobs of Implementation</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ jobs -l</p>
+  <div style="margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div style="border:1px solid rgba(77,255,136,0.3);background:rgba(120,255,160,0.03);padding:56px;display:flex;flex-direction:column;gap:28px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:30px;letter-spacing:4px;color:#4dff88">01</span>
+      <span style="font-size:54px;font-weight:700;letter-spacing:-1px;color:#eef2ee">Document reality</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:30px;line-height:1.55;color:rgba(220,235,224,0.7)">how each department actually works, day to day — not how the org chart says it works</span>
+    </div>
+    <div style="border:1px solid rgba(77,255,136,0.3);background:rgba(120,255,160,0.03);padding:56px;display:flex;flex-direction:column;gap:28px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:30px;letter-spacing:4px;color:#4dff88">02</span>
+      <span style="font-size:54px;font-weight:700;letter-spacing:-1px;color:#eef2ee">Build resilience</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:30px;line-height:1.55;color:rgba(220,235,224,0.7)">contingencies for the things that must keep working — written so anyone can follow them</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="03 Asking Why" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+  <div style="font-size:380px;font-weight:700;line-height:0.85;letter-spacing:-10px;color:rgba(77,255,136,0.16)">03</div>
+  <div>
+    <h2 style="margin:0;font-size:130px;font-weight:700;letter-spacing:-3px;line-height:1.0;color:#eef2ee">Asking Why</h2>
+    <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:32px;color:rgba(220,235,224,0.55)">// the part that finally worked</p>
+  </div>
+</section>
+
+<section data-label="Change Management" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:center;overflow:hidden">
+  <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:rgba(220,235,224,0.5)">[ IN MY "LIMITED" EXPERIENCE ]</p>
+  <h2 style="margin:64px 0 0;font-size:118px;font-weight:700;letter-spacing:-3px;line-height:1.05;color:#eef2ee;max-width:1680px">Compliance like NIS2 is less a legal task — and more a <span style="color:#4dff88">change-management obstacle.</span></h2>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:36px;color:rgba(220,235,224,0.6)">the directive tells you what. it never tells you how to move people.</p>
+</section>
+
+<section data-label="The Reframe" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Reframe</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ diff pitch.old pitch.new</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:56px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:rgba(220,235,224,0.4)">--- pitch.old</span>
+      <span style="font-size:54px;font-weight:500;color:rgba(220,235,224,0.45)">"NIS2 requires us to document this."</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:#4dff88">+++ pitch.new</span>
+      <span style="font-size:54px;font-weight:700;color:#eef2ee">"Why is it important that this keeps working?"</span>
+    </div>
+  </div>
+  <p style="margin:64px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.6)">same procedure underneath. completely different conversation.</p>
+</section>
+
+<section data-label="What Hurts" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:72px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">Find What Hurts</h2>
+  <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ nmap --top-ports 5 organisation</p>
+  <div style="margin-top:40px;display:flex;flex-direction:column;gap:32px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.4;color:rgba(220,235,224,0.85)">
+    <div style="display:flex;gap:36px"><span style="color:#ffc857;font-weight:700;flex:none">T01</span><span>money</span></div>
+    <div style="display:flex;gap:36px"><span style="color:#ffc857;font-weight:700;flex:none">T02</span><span>reputation</span></div>
+    <div style="display:flex;gap:36px"><span style="color:#ffc857;font-weight:700;flex:none">T03</span><span>human safety</span></div>
+    <div style="display:flex;gap:36px"><span style="color:#ffc857;font-weight:700;flex:none">T04</span><span>position among competitors</span></div>
+    <div style="display:flex;gap:36px"><span style="color:#ffc857;font-weight:700;flex:none">T05</span><span>legal ramifications</span></div>
+  </div>
+  <p style="margin:64px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#4dff88">find them. prioritize them. every why gets measured against this list.</p>
+</section>
+
+<section data-label="Four Questions" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">Four Questions</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ cat ~/toolkit/questions.txt</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:44px;font-family:'JetBrains Mono',monospace;font-size:37px;line-height:1.45;color:rgba(220,235,224,0.88)">
+    <div style="display:flex;gap:40px"><span style="color:#4dff88;font-weight:700;flex:none">01</span><span>Why is it important that this keeps working?</span></div>
+    <div style="display:flex;gap:40px"><span style="color:#4dff88;font-weight:700;flex:none">02</span><span>Why is there no contingency plan for it?</span></div>
+    <div style="display:flex;gap:40px"><span style="color:#4dff88;font-weight:700;flex:none">03</span><span>Why do we muddle through each day instead of writing the procedure down?</span></div>
+    <div style="display:flex;gap:40px"><span style="color:#4dff88;font-weight:700;flex:none">04</span><span>What do we gain by muddling through — and if nothing, why do we keep doing it?</span></div>
+  </div>
+</section>
+
+<section data-label="Until It Hurts" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">Until It Hurts</h2>
+  <div style="margin-top:64px;font-family:'JetBrains Mono',monospace;font-size:34px;line-height:1.6">
+    <p style="margin:0;color:rgba(220,235,224,0.5)">$ why --recursive</p>
+    <p style="margin:18px 0 0;color:#4dff88">why is there no contingency plan?</p>
+    <p style="margin:18px 0 0;padding-left:70px;color:rgba(220,235,224,0.6)">└─ "we manage. we know the drill."</p>
+    <p style="margin:18px 0 0;padding-left:140px;color:#4dff88">└─ why is the drill not written down?</p>
+    <p style="margin:18px 0 0;padding-left:210px;color:rgba(220,235,224,0.6)">└─ "no time. we're busy."</p>
+    <p style="margin:18px 0 0;padding-left:280px;color:#4dff88">└─ what does muddling through gain us?</p>
+    <p style="margin:18px 0 0;padding-left:350px;color:rgba(220,235,224,0.6)">└─ "…"</p>
+  </div>
+  <p style="margin:72px 0 0;font-size:54px;font-weight:700;letter-spacing:-1px;color:#eef2ee">It hurts when the honest answer is <span style="color:#4dff88">nothing.</span></p>
+</section>
+
+<section data-label="Let Them Tackle Themselves" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:64px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">Upper Management Resistance</h2>
+  <p style="margin:36px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ tail -f meetings/upper-management.log</p>
+  <div style="margin-top:36px;display:flex;flex-direction:column;gap:40px;max-width:1620px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:#ffc857">UPPER MANAGER</span>
+      <span style="font-size:46px;font-weight:500;line-height:1.25;color:rgba(220,235,224,0.7)">"You make this sound like the most important thing in the world. We have operations and goals. Why should I sacrifice them for yours?"</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:#4dff88">ME</span>
+      <span style="font-size:46px;font-weight:700;line-height:1.25;color:#eef2ee">"Your decision. If you see no value in resilience in your domain, don't build it. I won't chase you down — <span style="color:#4dff88">I expect you'll be chasing me, because you need it.</span>"</span>
+    </div>
+  </div>
+  <p style="margin:auto 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.6)">// don't tackle the resistance. let them tackle themselves.</p>
+</section>
+
+<section data-label="Goal of the Journey" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:56px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Goal of the Journey</h2>
+  <p style="margin:40px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ update-alternatives --config ambition</p>
+  <div style="margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;align-items:end">
+    <div style="box-sizing:border-box;height:300px;background:rgba(220,235,224,0.03);border:1px solid rgba(220,235,224,0.12);padding:32px;display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:56px;font-weight:700;color:rgba(220,235,224,0.3)">0</span>
+      <span style="font-size:36px;font-weight:700;color:rgba(220,235,224,0.7)">do nothing</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1.4;color:rgba(220,235,224,0.45)">ignore the responsibility — and hope it goes ok.</span>
+    </div>
+    <div style="box-sizing:border-box;height:373px;background:rgba(77,255,136,0.08);border:1px solid rgba(77,255,136,0.22);padding:32px;display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:56px;font-weight:700;color:rgba(77,255,136,0.55)">1</span>
+      <span style="font-size:36px;font-weight:700;color:#eef2ee">avoid sanctions</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1.4;color:rgba(220,235,224,0.55)">weak implementation. compliance for compliance's sake.</span>
+    </div>
+    <div style="box-sizing:border-box;height:446px;background:rgba(77,255,136,0.22);border:1px solid rgba(77,255,136,0.5);padding:32px;display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:56px;font-weight:700;color:#4dff88">2</span>
+      <span style="font-size:36px;font-weight:700;color:#eef2ee">create value</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1.4;color:rgba(220,235,224,0.7)">run on risk: resilient systems, strong contingency plans.</span>
+    </div>
+    <div style="box-sizing:border-box;height:520px;background:#4dff88;padding:32px;display:flex;flex-direction:column;gap:14px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:56px;font-weight:700;color:#071008">3</span>
+      <span style="font-size:36px;font-weight:700;color:#071008">risk-based leadership</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:24px;line-height:1.4;color:rgba(7,16,8,0.75)">the continuation: data-driven decisions, steered by data and risk.</span>
+    </div>
+  </div>
+  <div style="margin-top:32px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:28px;color:rgba(220,235,224,0.5)">
+    <span>// choose out loud — every choice here comes with a price</span>
+    <span>maturity &amp; value →</span>
+  </div>
+</section>
+
+<section data-label="What Changed" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">What Changed</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ git log --oneline</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:40px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5;color:rgba(220,235,224,0.82)">
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">a41f2c9</span><span>the answers to "why" became the business case</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">7be03d1</span><span>stronger than any article citation I ever produced</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">c9d4e88</span><span>people stand behind procedures they justified themselves</span></div>
+  </div>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#4dff88">it has made the case stronger ever since.</p>
+</section>
+
+<section data-label="The Incentives" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Incentives</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ echo $WHATS_IN_IT_FOR_ME</p>
+  <div style="margin-top:44px;display:flex;flex-direction:column;gap:40px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5;color:rgba(220,235,224,0.82)">
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>return on investment — not always money</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>a clear view of risk, and the choice to reduce it</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>breaking the silo — clarity in your department and across the organisation</span></div>
+  </div>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#4dff88">the barriers push back. these pull forward.</p>
+</section>
+
+<section data-label="Know Your Role" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">Know Your Role</h2>
+  <p style="margin:48px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ id</p>
+  <div style="margin-top:48px;display:flex;flex-direction:column;gap:56px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:#4dff88">RESPONSIBILITY</span>
+      <span style="font-size:54px;font-weight:700;color:#eef2ee">what you are expected to deliver</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:#4dff88">MANDATE</span>
+      <span style="font-size:54px;font-weight:700;color:#eef2ee">what you are empowered to change</span>
+    </div>
+  </div>
+  <p style="margin:64px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.6)">make sure they are aligned. <span style="color:#4dff88">misaligned? start by aligning them — before anything else.</span></p>
+</section>
+
+<section data-label="The Decay" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <h2 style="margin:80px 0 0;font-size:96px;font-weight:700;letter-spacing:-2px;line-height:1.05;color:#eef2ee">The Decay</h2>
+  <p style="margin:44px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:rgba(220,235,224,0.5)">$ dig manager.converted +ttl</p>
+  <p style="margin:40px 0 0;font-size:54px;font-weight:700;letter-spacing:-1px;color:#eef2ee;max-width:1560px">Converted managers <span style="color:#ffc857">don't stay converted.</span></p>
+  <div style="margin-top:64px;display:flex;flex-direction:column;gap:40px;font-family:'JetBrains Mono',monospace;font-size:36px;line-height:1.5;color:rgba(220,235,224,0.82)">
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>they lose focus</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>they forget</span></div>
+    <div style="display:flex;gap:26px"><span style="color:#4dff88;flex:none">&gt;</span><span>other events pressure the priority away</span></div>
+  </div>
+  <p style="margin:56px 0 0;font-family:'JetBrains Mono',monospace;font-size:34px;color:#4dff88">conversion has a TTL. keep re-asking why.</p>
+</section>
+
+<section data-label="The Heart of It" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;overflow:hidden">
+  <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:3px;color:rgba(220,235,224,0.4)">
+    <span style="color:rgba(77,255,136,0.85)">[ 03 / ASKING WHY ]</span>
+    <span>ASKING WHY UNTIL IT HURTS</span>
+  </div>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:rgba(220,235,224,0.5)">WHAT GOOD LOOKS LIKE</p>
+  <div style="margin-top:48px;display:flex;flex-direction:column;gap:52px">
+    <div style="display:flex;align-items:baseline;gap:44px"><span style="font-size:110px;font-weight:700;letter-spacing:-3px;color:#eef2ee">Resilient</span><span style="font-family:'JetBrains Mono',monospace;font-size:30px;color:rgba(220,235,224,0.55)">— survives the bad day</span></div>
+    <div style="display:flex;align-items:baseline;gap:44px"><span style="font-size:110px;font-weight:700;letter-spacing:-3px;color:#eef2ee">Documented</span><span style="font-family:'JetBrains Mono',monospace;font-size:30px;color:rgba(220,235,224,0.55)">— exists outside someone's head</span></div>
+    <div style="display:flex;align-items:baseline;gap:44px"><span style="font-size:110px;font-weight:700;letter-spacing:-3px;color:#4dff88">Reproducible</span><span style="font-family:'JetBrains Mono',monospace;font-size:30px;color:rgba(220,235,224,0.55)">— works when that someone is on holiday</span></div>
+  </div>
+</section>
+
+<section data-label="Hearts and Minds" style="font-family:'Space Grotesk',sans-serif;background:#4dff88;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:center;overflow:hidden">
+  <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:3px;color:rgba(7,16,8,0.65)">[ THE TAKEAWAY ]</p>
+  <h2 style="margin:64px 0 0;font-size:140px;font-weight:700;letter-spacing:-4px;line-height:1.02;color:#071008;max-width:1650px">Compliance is about moving hearts and minds.</h2>
+  <p style="margin:40px 0 0;font-size:72px;font-weight:700;letter-spacing:-2px;color:rgba(7,16,8,0.82)">...and a lot of stubbornness.</p>
+  <p style="margin:72px 0 0;font-family:'JetBrains Mono',monospace;font-size:36px;color:rgba(7,16,8,0.7)">the rules were the easy part.</p>
+</section>
+
+<section data-label="Questions" style="font-family:'Space Grotesk',sans-serif;background-color:#0c0e0c;background-image:linear-gradient(rgba(120,255,160,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,255,160,0.045) 1px,transparent 1px);background-size:96px 96px;box-sizing:border-box;padding:90px 110px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+  <div style="font-family:'JetBrains Mono',monospace;font-size:34px;display:flex;gap:0px">
+    <span style="color:#3f9e5f">gorm@bornhack</span><span style="color:#5a6b5e">:</span><span style="color:#6ea3d8">~</span><span style="color:#5a6b5e">$&nbsp;</span><span style="color:#cfe8d6">why --interactive</span>
+  </div>
+  <div>
+    <h2 style="margin:0;font-size:160px;font-weight:700;letter-spacing:-5px;color:#eef2ee">Questions<span style="color:#4dff88">?</span></h2>
+    <p style="margin:44px 0 0;font-family:'JetBrains Mono',monospace;font-size:30px;color:rgba(220,235,224,0.5)">&gt;&nbsp;slides: <span style="color:#4dff88">github.com/Reventlow/nis2_bornhack_2026</span></p>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:28px;color:rgba(220,235,224,0.75)">
+    <span style="display:flex;align-items:center;gap:20px"><span style="width:18px;height:18px;background:#4dff88;display:inline-block"></span><span>Gorm Reventlow</span></span>
+    <span style="color:rgba(220,235,224,0.45)">BornHack 2026</span>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+</body>
+</html>

@@ -4,16 +4,17 @@ A 28-slide conference deck (1920×1080) for a 45-minute BornHack talk on NIS2
 compliance as a change-management problem. Terminal/hacker aesthetic: dark
 background, faint green grid, monospace commands, green accent.
 
-The deck is plain static HTML — no build step. `site/index.html` contains all
-28 slides; `site/deck-stage.js` provides the presentation shell (scaling,
-arrow-key navigation, thumbnail rail, print-to-PDF).
+The deck is plain static HTML — no build step. `site/dark.html` contains all
+28 slides and is the editable source; `site/deck-stage.js` provides the
+presentation shell (scaling, arrow-key navigation, thumbnail rail,
+print-to-PDF).
 
 Two themes are served:
 
-- `/` — the original dark terminal theme (screens, dim rooms)
-- `/light.html` — "Milky Matcha" light theme (projectors in daylight;
-  generated from the dark deck by `scripts/make-light.py` — re-run it after
-  editing `site/index.html`)
+- `/` — "Milky Matcha" light theme, the default (the talk runs on a
+  projector in a daylight tent). Generated from the dark deck by
+  `scripts/make-light.py` — re-run it after editing `site/dark.html`.
+- `/dark.html` — the original dark terminal theme (screens, dim rooms)
 
 ## View locally
 
@@ -57,6 +58,6 @@ The image lands at `YOUR_USER/asking-why:latest` plus a per-commit sha tag.
 ## Design
 
 The original design handoff (slide inventory, design tokens, layout specs) is
-in [docs/DESIGN_HANDOFF.md](docs/DESIGN_HANDOFF.md). `site/index.html` is the
+in [docs/DESIGN_HANDOFF.md](docs/DESIGN_HANDOFF.md). `site/dark.html` is the
 source of truth for all visual decisions — colors, typography, spacing, and
 copy are final.

@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
-"""Generate site/light.html from site/index.html.
+"""Generate site/index.html (light) from site/dark.html.
 
-Maps the dark terminal palette to a light "Milky Matcha" palette
-(inspired by the Omarchy milkmatcha theme) for projector use — dark
-ink on a cream background survives daylight-tent beamers far better
-than neon-on-black.
+site/dark.html is the editable source of truth. This script maps its
+dark terminal palette to a light "Milky Matcha" palette (inspired by
+the Omarchy milkmatcha theme) and writes the result as index.html —
+the default deck, since the talk runs on a projector in a daylight
+tent where dark ink on cream survives far better than neon-on-black.
 
-Run from the repo root after any edit to site/index.html:
+Run from the repo root after any edit to site/dark.html:
 
     python3 scripts/make-light.py
 """
 
 from pathlib import Path
 
-SRC = Path("site/index.html")
-DST = Path("site/light.html")
+SRC = Path("site/dark.html")
+DST = Path("site/index.html")
 
 # Dark token -> Milky Matcha light token.
 # Text accents use dim matcha (#6b8054) rather than the theme's brighter
