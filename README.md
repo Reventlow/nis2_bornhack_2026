@@ -40,8 +40,10 @@ The image lands at `YOUR_USER/asking-why:latest` plus a per-commit sha tag.
 
 ## Presenting
 
-- ←/→ arrow keys to navigate slides.
-- Press P or use the browser print dialog for a one-page-per-slide PDF.
+- ←/→ arrow keys to navigate slides; 1–9/0 jump to slide, Home/End for first/last.
+- Press F to toggle fullscreen presentation mode (hides the thumbnail rail
+  and nav overlay); Esc or F again to exit.
+- Use the browser print dialog for a one-page-per-slide PDF.
 - Fonts (JetBrains Mono, Space Grotesk) load from Google Fonts at runtime,
   so presenting needs internet access. Everything else is served locally.
 

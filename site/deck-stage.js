@@ -602,6 +602,7 @@
       this._onMouseMove = this._onMouseMove.bind(this);
       this._onTap = this._onTap.bind(this);
       this._onMessage = this._onMessage.bind(this);
+      this._onFsChange = this._onFsChange.bind(this);
       // Capture-phase close so a click anywhere dismisses the menu, but
       // ignore clicks that land inside the menu itself — otherwise the
       // capture handler runs before the menu's own (bubble) handler and
@@ -632,6 +633,7 @@
       window.addEventListener('resize', this._onResize);
       window.addEventListener('mousemove', this._onMouseMove, { passive: true });
       window.addEventListener('message', this._onMessage);
+      document.addEventListener('fullscreenchange', this._onFsChange);
       window.addEventListener('click', this._onDocClick, true);
       this.addEventListener('click', this._onTap);
       // Print lays every slide out as its own page, so [data-deck-active]-
@@ -872,6 +874,7 @@
       window.removeEventListener('resize', this._onResize);
       window.removeEventListener('mousemove', this._onMouseMove);
       window.removeEventListener('message', this._onMessage);
+      document.removeEventListener('fullscreenchange', this._onFsChange);
       window.removeEventListener('click', this._onDocClick, true);
       window.removeEventListener('beforeprint', this._onBeforePrint);
       window.removeEventListener('afterprint', this._onAfterPrint);
@@ -1325,19 +1328,39 @@
       this._flashOverlay();
     }
 
+    _toggleFullscreen() {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+    }
+
+    _onFsChange() {
+      // Native fullscreen doubles as presentation mode: hide the rail and
+      // nav overlay while fullscreen, restore them on exit (including exits
+      // via Escape, which never pass through _onKey).
+      this._setPresenting(!!document.fullscreenElement);
+    }
+
+    _setPresenting(on) {
+      if (this._presenting === on) return;
+      this._presenting = on;
+      if (on && this._overlay) {
+        this._overlay.removeAttribute('data-visible');
+        if (this._hideTimer) clearTimeout(this._hideTimer);
+      }
+      this._syncRailHidden();
+      this._closeMenu();
+      this._closeConfirm();
+      this._fit();
+      this._scaleThumbs();
+    }
+
     _onMessage(e) {
       const d = e.data;
       if (d && typeof d.__omelette_presenting === 'boolean') {
-        this._presenting = d.__omelette_presenting;
-        if (this._presenting && this._overlay) {
-          this._overlay.removeAttribute('data-visible');
-          if (this._hideTimer) clearTimeout(this._hideTimer);
-        }
-        this._syncRailHidden();
-        this._closeMenu();
-        this._closeConfirm();
-        this._fit();
-        this._scaleThumbs();
+        this._setPresenting(d.__omelette_presenting);
       }
       // Host's Preview segment (ViewerMode='none'): the rail's drag-reorder /
       // right-click skip-delete affordances are editing chrome, so hide it
@@ -1456,6 +1479,8 @@
         this._go(this._slides.length - 1, 'keyboard');
       } else if (key === 'r' || key === 'R') {
         this._go(0, 'keyboard');
+      } else if (key === 'f' || key === 'F') {
+        this._toggleFullscreen();
       } else if (/^[0-9]$/.test(key)) {
         // 1..9 jump to that slide; 0 jumps to 10.
         const n = key === '0' ? 9 : parseInt(key, 10) - 1;
