@@ -8,6 +8,13 @@ The deck is plain static HTML — no build step. `site/index.html` contains all
 28 slides; `site/deck-stage.js` provides the presentation shell (scaling,
 arrow-key navigation, thumbnail rail, print-to-PDF).
 
+Two themes are served:
+
+- `/` — the original dark terminal theme (screens, dim rooms)
+- `/light.html` — "Milky Matcha" light theme (projectors in daylight;
+  generated from the dark deck by `scripts/make-light.py` — re-run it after
+  editing `site/index.html`)
+
 ## View locally
 
 Any static file server works:
