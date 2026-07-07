@@ -1,5 +1,8 @@
 # Asking Why Until It Hurts — BornHack 2026
 
+**Live deck:** https://nis2-talk.blacklog.net (dark theme at
+[/dark.html](https://nis2-talk.blacklog.net/dark.html))
+
 A 28-slide conference deck (1920×1080) for a 45-minute BornHack talk on NIS2
 compliance as a change-management problem. Terminal/hacker aesthetic: dark
 background, faint green grid, monospace commands, green accent.
