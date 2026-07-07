@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Deck aesthetic in 64px: dark tile, faint green grid, "?" + block cursor -->
+  <rect width="64" height="64" rx="12" fill="#0c0e0c"/>
+  <path d="M15 0h1v64h-1zM47 0h1v64h-1zM0 15h64v1H0zM0 47h64v1H0z" fill="#78ffa0" fill-opacity=".14"/>
+  <text x="26" y="48" font-family="'JetBrains Mono',Menlo,Consolas,monospace" font-size="48" font-weight="800" fill="#4dff88" text-anchor="middle">?</text>
+  <rect x="42" y="32" width="11" height="16" fill="#4dff88"/>
+</svg>
