@@ -1,0 +1,21 @@
+name: watchtower
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Only update containers labeled com.centurylinklabs.watchtower.enable=true,
+    # check every 5 minutes, remove superseded images afterwards.
+    command: --label-enable --interval 300 --cleanup
+x-casaos:
+  architectures:
+    - amd64
+  main: watchtower
+  author: Gorm Reventlow
+  category: Utilities
+  title:
+    en_us: Watchtower
+  description:
+    en_us: Auto-updates opted-in containers (label com.centurylinklabs.watchtower.enable) from their registries
+  icon: ""

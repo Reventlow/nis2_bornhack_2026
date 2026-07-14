@@ -1,0 +1,29 @@
+name: asking-why
+services:
+  asking-why:
+    image: elohite/asking-why:latest
+    restart: unless-stopped
+    ports:
+      - "8880:80"
+    labels:
+      # Opt in to Watchtower auto-updates (watchtower runs with --label-enable)
+      - com.centurylinklabs.watchtower.enable=true
+    x-casaos:
+      ports:
+        - container: "80"
+          description:
+            en_us: Slide deck web server
+x-casaos:
+  architectures:
+    - amd64
+  main: asking-why
+  author: Gorm Reventlow
+  category: Utilities
+  title:
+    en_us: Asking Why Until It Hurts
+  description:
+    en_us: BornHack 2026 talk deck (NIS2 / change management), 28 slides, arrow-key navigation
+  icon: ""
+  port_map: "8880"
+  scheme: http
+  index: /
