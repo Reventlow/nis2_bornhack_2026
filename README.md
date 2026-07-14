@@ -27,7 +27,21 @@ Any static file server works:
 
 Open http://localhost:8080
 
-## Build & run with Docker
+## Site down? Run the slides locally with Docker
+
+Every push to `main` publishes the deck as a Docker image, so you can pull
+and run it anywhere without cloning the repo:
+
+    docker pull elohite/asking-why:latest
+    docker run -d -p 8080:80 elohite/asking-why:latest
+
+Open http://localhost:8080 — light theme at `/`, dark at `/dark.html`.
+Press F for fullscreen, arrow keys to navigate.
+
+Note: the slide fonts load from Google Fonts, so fully offline viewing
+falls back to system fonts — readable, just not pixel-identical.
+
+## Build & run from source
 
     docker build -t asking-why .
     docker run -d -p 8080:80 asking-why
