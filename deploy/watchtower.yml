@@ -6,8 +6,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     # Only update containers labeled com.centurylinklabs.watchtower.enable=true,
-    # check every 5 minutes, remove superseded images afterwards.
-    command: --label-enable --interval 300 --cleanup
+    # check every 10 minutes, remove superseded images afterwards.
+    # (Matches the instance installed on the ZimaBoard.)
+    command: --label-enable --interval 600 --cleanup
 x-casaos:
   architectures:
     - amd64
